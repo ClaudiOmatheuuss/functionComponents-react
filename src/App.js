@@ -2,17 +2,18 @@ import { Component } from 'react';
 import './App.css';
 
 import FormularioCadastro from './components/FormularioCadastro/FormularioCadastro'
-import { Container, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import 'fontsource-roboto'
+import CaixaForm from './components/CaixaForm/CaixaForm';
 
 class App extends Component {
 
   render() {
     return (
-      <Container component="article" maxWidth="sm">
+      <CaixaForm>
         <Typography variant='h3' component='h1' align='center'>Formulário de cadastro</Typography>
         <FormularioCadastro aoEnviar={aoEnviarForm} validarCPF={validarCPF} />
-      </Container>
+      </CaixaForm>
     );
   }
 }
