@@ -6,12 +6,20 @@ function FormularioCadastro() {
     const [nome, setNome] = useState("")
     const [sobrenome, setSobrenome] = useState("")
     const [cpf, setCpf] = useState("")
+    const [promocoes, setPromocoes] = useState(true)
+    const [novidades, setNovidades] = useState(false)
 
     return (
         <form
             onSubmit={(event) => {
                 event.preventDefault()
-                console.log({ nome: nome, sobrenome: sobrenome, cpf: cpf })
+                console.log({ 
+                    nome: nome, 
+                    sobrenome: sobrenome, 
+                    cpf: cpf, promocoes: 
+                    promocoes, 
+                    novidades: novidades 
+                })
                 setNome("")
             }}
         >
@@ -24,11 +32,7 @@ function FormularioCadastro() {
                 fullWidth
                 value={nome}
                 onChange={(event) => {
-                    let tmpnome = event.target.value
-                    if (tmpnome.length >= 3) {
-                        setNome(tmpnome.substr(0, 3))
-                    }
-                    setNome(tmpnome)
+                    setNome(event.target.value)
                 }}
             />
 
@@ -51,17 +55,33 @@ function FormularioCadastro() {
                 margin='normal'
                 fullWidth
                 value={cpf}
-                onChange={(event) => setCpf(event.target.value)}
+                onChange={(event) => {
+                    setCpf(event.target.value)
+                }}
             />
 
             <FormControlLabel
                 label="Promoções"
-                control={<Switch name='promocoes' defaultChecked color='primary' />}
+                control={<Switch 
+                            name='promocoes' 
+                            checked={promocoes}
+                            color='primary' 
+                            onChange={(event) => {
+                                setPromocoes(event.target.checked)
+                            }}
+                        />}
             />
 
             <FormControlLabel
                 label="Novidades"
-                control={<Switch name='novidades' defaultChecked color='primary' />}
+                control={<Switch 
+                            name='novidades' 
+                            checked={novidades}
+                            color='primary' 
+                            onChange={(event) => {
+                                setNovidades(event.target.checked)
+                            }}
+                        />}
             />
 
             <Button variant='contained' color='primary' type='submit'>Confirmar</Button>
