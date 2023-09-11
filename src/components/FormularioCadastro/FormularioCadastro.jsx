@@ -1,7 +1,7 @@
 import { Button, TextField, Switch, FormControlLabel } from '@mui/material';
 import React, { useState } from 'react';
 
-function FormularioCadastro() {
+function FormularioCadastro({ aoEnviar }) {
 
     const [nome, setNome] = useState("")
     const [sobrenome, setSobrenome] = useState("")
@@ -13,14 +13,10 @@ function FormularioCadastro() {
         <form
             onSubmit={(event) => {
                 event.preventDefault()
-                console.log({ 
-                    nome: nome, 
-                    sobrenome: sobrenome, 
-                    cpf: cpf, promocoes: 
-                    promocoes, 
-                    novidades: novidades 
-                })
+                aoEnviar({nome, sobrenome, cpf, promocoes, novidades})
                 setNome("")
+                setSobrenome("")
+                setCpf("")
             }}
         >
 
