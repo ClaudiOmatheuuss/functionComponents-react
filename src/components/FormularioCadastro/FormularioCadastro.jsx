@@ -27,7 +27,7 @@ function FormularioCadastro({ aoEnviar, validarCPF }) {
                 id="nome"
                 label="Nome"
                 variant="outlined"
-                margin='dense'
+                margin='normal'
                 fullWidth
                 value={nome}
                 onChange={(event) => {
@@ -39,7 +39,7 @@ function FormularioCadastro({ aoEnviar, validarCPF }) {
                 id="sobrenome"
                 label="Sobrenome"
                 variant="outlined"
-                margin='dense'
+                margin='normal'
                 fullWidth
                 value={sobrenome}
                 onChange={(event) => {
@@ -61,7 +61,7 @@ function FormularioCadastro({ aoEnviar, validarCPF }) {
                 id="cpf"
                 label="CPF"
                 variant="outlined"
-                margin='dense'
+                margin='normal'
                 fullWidth
                 value={cpf}
             />
