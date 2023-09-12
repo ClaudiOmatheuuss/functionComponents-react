@@ -1,5 +1,6 @@
 import { Button, TextField, Switch, FormControlLabel } from '@mui/material';
 import React, { useState } from 'react';
+import styles from './FormularioCadastro.module.css'
 
 function FormularioCadastro({ aoEnviar, validarCPF }) {
 
@@ -8,13 +9,14 @@ function FormularioCadastro({ aoEnviar, validarCPF }) {
     const [cpf, setCpf] = useState("")
     const [promocoes, setPromocoes] = useState(true)
     const [novidades, setNovidades] = useState(false)
-    const [erros, setErros] = useState({cpf:{valido:true, texto:""}})
+    const [erros, setErros] = useState({ cpf: { valido: true, texto: "" } })
 
     return (
         <form
+        className={styles.formulario}
             onSubmit={(event) => {
                 event.preventDefault()
-                aoEnviar({nome, sobrenome, cpf, promocoes, novidades})
+                aoEnviar({ nome, sobrenome, cpf, promocoes, novidades })
                 setNome("")
                 setSobrenome("")
                 setCpf("")
@@ -25,7 +27,7 @@ function FormularioCadastro({ aoEnviar, validarCPF }) {
                 id="nome"
                 label="Nome"
                 variant="outlined"
-                margin='normal'
+                margin='dense'
                 fullWidth
                 value={nome}
                 onChange={(event) => {
@@ -37,7 +39,7 @@ function FormularioCadastro({ aoEnviar, validarCPF }) {
                 id="sobrenome"
                 label="Sobrenome"
                 variant="outlined"
-                margin='normal'
+                margin='dense'
                 fullWidth
                 value={sobrenome}
                 onChange={(event) => {
@@ -52,46 +54,48 @@ function FormularioCadastro({ aoEnviar, validarCPF }) {
 
                 onBlur={(event) => {
                     const ehValido = validarCPF(event.target.value)
-                    setErros({cpf:ehValido})
+                    setErros({ cpf: ehValido })
                 }}
                 error={!erros.cpf.valido}
                 helperText={erros.cpf.texto}
                 id="cpf"
                 label="CPF"
                 variant="outlined"
-                margin='normal'
+                margin='dense'
                 fullWidth
                 value={cpf}
             />
 
             <FormControlLabel
                 label="Promoções"
-                control={<Switch 
-                            name='promocoes' 
-                            checked={promocoes}
-                            color='primary' 
-                            onChange={(event) => {
-                                setPromocoes(event.target.checked)
-                            }}
-                        />}
+                control={<Switch
+                    name='promocoes'
+                    checked={promocoes}
+                    color='primary'
+                    onChange={(event) => {
+                        setPromocoes(event.target.checked)
+                    }}
+                />}
             />
 
             <FormControlLabel
                 label="Novidades"
-                control={<Switch 
-                            name='novidades' 
-                            checked={novidades}
-                            color='primary' 
-                            onChange={(event) => {
-                                setNovidades(event.target.checked)
-                            }}
-                        />}
+                control={<Switch
+                    name='novidades'
+                    checked={novidades}
+                    color='primary'
+                    onChange={(event) => {
+                        setNovidades(event.target.checked)
+                    }}
+                />}
             />
 
-            <Button 
-                variant='contained' 
+            <Button
+                variant='contained'
                 color='primary'
                 type='submit'
+                fullWidth
+                size='large'
             >Confirmar</Button>
         </form>
     )

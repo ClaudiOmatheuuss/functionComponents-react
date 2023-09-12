@@ -1,0 +1,37 @@
+.container {
+    align-items: center;
+    background-color: #f8fafc;
+    border-radius: 20px;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    height: 80vh;
+    justify-content: center;
+    margin-top: 5rem;
+}
+
+.container h1 {
+    font-family: cursive;
+    font-size: 2.5rem;
+    padding-top: 2%;
+    position: relative;
+}
+
+.container h1::before {
+    position: absolute;
+    content: '';
+    width: 20%;
+    background-color: #1976D2;
+    height: 3px;
+    bottom: -5px;
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 800px) {
+    .container {
+        margin-top: 2rem;
+    }
+    .container h1 {
+        font-size: 1.5rem;
+    }
+}
