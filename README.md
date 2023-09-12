@@ -22,9 +22,3 @@
                                         Demonstração
 
 ![image](https://github.com/ClaudiOmatheuuss/validacoes-react/assets/113804116/9b9d9a77-8e9a-40a8-be5a-c2823a21bfd0)
-=======
-----------------------------------------------------------------------------------------------------------------------------------------
-                                        Demonstração
-
-![image](https://github.com/ClaudiOmatheuuss/validacoes-react/assets/113804116/9b9d9a77-8e9a-40a8-be5a-c2823a21bfd0)
->>>>>>> 53a9edeb6ddd9f07f0a8f3901216c1b3a9094a65
