@@ -6,3 +6,9 @@
     margin: 4% 0 0 7.5%;
     gap: 10px;
 }
+
+@media (max-width: 800px){
+    .formulario{
+        gap: 6px;    
+    }
+}
