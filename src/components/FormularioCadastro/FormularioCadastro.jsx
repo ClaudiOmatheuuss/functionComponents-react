@@ -11,16 +11,27 @@ function FormularioCadastro({ aoEnviar, validarCPF }) {
     const [novidades, setNovidades] = useState(false)
     const [erros, setErros] = useState({ cpf: { valido: true, texto: "" } })
 
+    function possoEnviar() {
+        for (let campo in erros) {
+            if (!erros[campo].valido) {
+                return false;
+            }
+        }
+        return true;
+    }    
+
     return (
         <form
         className={styles.formulario}
-            onSubmit={(event) => {
-                event.preventDefault()
-                aoEnviar({ nome, sobrenome, cpf, promocoes, novidades })
-                setNome("")
-                setSobrenome("")
-                setCpf("")
-            }}
+        onSubmit={(event) => {
+            event.preventDefault(); // Evite o envio padrão do formulário
+            if (possoEnviar()) {
+                aoEnviar({ nome, sobrenome, cpf, promocoes, novidades });
+                setNome("");
+                setSobrenome("");
+                setCpf("");
+            }
+        }}
         >
 
             <TextField
